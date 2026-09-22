@@ -123,6 +123,23 @@ off-policy feedback. The improved policy is redeployed online, continuously expa
 - **Empirical validation.** Across algorithm engineering, mathematical optimization and GPU kernel
   engineering, Dream-RSI improves both discovery effectiveness and efficiency in several settings.
 
+## Community implementations
+
+Independent, open-source reimplementations of the Dream-RSI method (none
+affiliated with the authors; listed here as they appear):
+
+- [patrykorwat/open-dream-rsi](https://github.com/patrykorwat/open-dream-rsi) —
+  zero-dependency Python library around any OpenAI-compatible endpoint
+  (OpenAI/vLLM/Ollama/LM Studio): budget-guarded supervisor, LLM-written
+  exploration policies with sandboxed counterfactual-replay promotion, a
+  curated cross-run knowledge base, live dashboard, and deterministic
+  key-free benchmarks (`bench`, decoy-trap `bench-policy`). MIT.
+- [TheAstrayDev/dream-rsi-sdk](https://github.com/TheAstrayDev/dream-rsi-sdk) —
+  model-agnostic adapter SDK with strict replay and evidence-based promotion
+  gates.
+- [robinber/dream-rsi-spark](https://github.com/robinber/dream-rsi-spark) —
+  local Qwen + CUDA kernel exploration on NVIDIA DGX Spark.
+
 ## Release plan
 
 | Item | Status |
