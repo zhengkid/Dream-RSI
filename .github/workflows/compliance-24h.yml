@@ -1,0 +1,62 @@
+name: Sonoxo 24H Compliance Watch
+
+on:
+  push:
+    branches:
+      - gptdoug/swarm-ecosystem-stack
+    paths:
+      - "compliance/**"
+      - "scripts/compliance_watch.py"
+      - "scripts/doj_nsd_repo_mapper.py"
+      - "tests/test_doj_nsd_repo_mapper.py"
+      - ".github/workflows/compliance-24h.yml"
+  schedule:
+    - cron: "17 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compliance-watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SONOXO_GITHUB_OWNER: sonoxo
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Run unit tests
+        run: python -m unittest tests.test_doj_nsd_repo_mapper
+
+      - name: Run authoritative compliance watch
+        run: python scripts/compliance_watch.py
+
+      - name: Map DOJ NSD enforcement to Sonoxo repositories
+        run: python scripts/doj_nsd_repo_mapper.py
+
+      - name: Publish compliance summary
+        if: always()
+        run: |
+          if [ -f artifacts/doj-nsd-repo-map.md ]; then
+            cat artifacts/doj-nsd-repo-map.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload compliance evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: compliance-watch-evidence
+          path: |
+            artifacts/compliance-watch.json
+            artifacts/doj-nsd-repo-map.json
+            artifacts/doj-nsd-repo-map.md
+          if-no-files-found: error
+          retention-days: 90

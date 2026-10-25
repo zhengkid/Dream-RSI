@@ -1,0 +1,69 @@
+version: 1
+name: gptdoug-ecosystem-swarm
+rule: ForeverRuleGPTDOUGLLMMAXMIMIXK
+
+orchestrator:
+  mode: swarm
+  strategy: dream-rsi
+  max_parallel_agents: env:GPTDOUG_MAX_PARALLEL_AGENTS
+  fallback_parallel_agents: 8
+  objective: >-
+    Coordinate repository-aware exploration across GPT-DOUG-Dream-RSI, Zyra,
+    XUNIA, and a configurable BlackHouse integration target. Preserve repository
+    boundaries, require evaluation before promotion, and keep all production
+    mutations reviewable.
+
+systems:
+  dream_rsi:
+    repo: sonoxo/GPT-DOUG-Dream-RSI
+    role: meta_exploration
+  zyra:
+    repo: sonoxo/zyra
+    role: governed_ontology_and_runtime
+  xunia:
+    repos:
+      - sonoxo/xuniahub
+      - sonoxo/gods-eye-viewXUNIA
+      - sonoxo/AIT-CoreXUNIA
+      - sonoxo/plandevXUNIA-
+      - sonoxo/MMGISxunia-
+    role: simulation_geospatial_and_application_ecosystem
+  blackhouse:
+    repo: env:BLACKHOUSE_REPO
+    role: configurable_blackhouse_adapter
+    required: false
+
+swarm:
+  roles:
+    - explorer
+    - architect
+    - integrator
+    - evaluator
+    - critic
+    - security_reviewer
+  generation_loop:
+    - ingest_context
+    - branch_candidates
+    - run_parallel_agents
+    - evaluate_candidates
+    - retain_diverse_winners
+    - record_lineage
+    - replay_history
+    - improve_policy
+  promotion_gates:
+    require_tests: true
+    require_review: true
+    require_security_check: true
+    direct_production_mutation: false
+
+interfaces:
+  event_bus:
+    schema: ecosystem/event.schema.json
+  adapter_contract:
+    schema: ecosystem/adapter.schema.json
+
+safety:
+  secrets_from_environment_only: true
+  no_cross_repo_writes_without_explicit_target: true
+  no_unreviewed_automerge: true
+  audit_every_candidate: true

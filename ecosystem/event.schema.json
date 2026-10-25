@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sonoxo.dev/schemas/gptdoug-swarm-event.json",
+  "title": "GPTDougSwarmEvent",
+  "type": "object",
+  "required": ["event_id", "run_id", "source", "kind", "timestamp", "payload"],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "parent_event_id": {"type": ["string", "null"]},
+    "source": {"enum": ["dream-rsi", "zyra", "xunia", "blackhouse", "gptdoug"]},
+    "kind": {"enum": ["objective", "candidate", "evaluation", "observation", "promotion", "rejection", "policy_update"]},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "payload": {"type": "object"},
+    "score": {"type": ["number", "null"]},
+    "artifacts": {"type": "array", "items": {"type": "string"}, "default": []}
+  },
+  "additionalProperties": false
+}

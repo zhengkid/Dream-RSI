@@ -1,0 +1,136 @@
+version: 1
+ontology: gptdougALLKINDSFOREVERRULE
+namespace: sonoxo.gptdoug.future
+purpose: >-
+  Govern a federated AI production ecosystem spanning Dream-RSI, Zyra, XUNIA,
+  Palantir-compatible ontology adapters, agent swarms, organizations, agencies,
+  documentation, models, evaluations, controls, and production artifacts.
+
+principles:
+  - lawful_access_only
+  - least_privilege
+  - provenance_required
+  - human_accountability
+  - review_before_high_impact_action
+  - jurisdiction_aware_compliance
+  - auditable_agent_behavior
+  - secrets_never_committed
+  - classified_data_only_when_explicitly_authorized_and_provisioned
+
+object_types:
+  AI_System:
+    properties: [id, name, owner, purpose, model_family, deployment_state, risk_tier]
+  Agent:
+    properties: [id, name, role, capabilities, parent_swarm, authority_scope, status]
+  Swarm:
+    properties: [id, name, objective, concurrency_limit, policy, evaluator_set]
+  Organization:
+    properties: [id, name, organization_type, jurisdiction]
+  Agency:
+    properties: [id, name, jurisdiction, authority_reference, public_or_authorized_source]
+  Repository:
+    properties: [id, url, visibility, owner, branch, provenance]
+  Production:
+    properties: [id, name, lifecycle_stage, owner, dependencies, release_gate]
+  Model:
+    properties: [id, provider, version, modality, license, evaluation_status]
+  Dataset:
+    properties: [id, name, provenance, license, sensitivity, retention_policy]
+  Document:
+    properties: [id, title, source, classification, access_basis, provenance_hash]
+  Policy:
+    properties: [id, name, jurisdiction, effective_date, source, obligations]
+  Regulation:
+    properties: [id, jurisdiction, authority, citation, effective_date, applicability]
+  Control:
+    properties: [id, name, control_family, requirement, evidence_required]
+  Evaluation:
+    properties: [id, evaluator, target, metrics, result, timestamp]
+  Evidence:
+    properties: [id, source, hash, timestamp, chain_of_custody]
+  Incident:
+    properties: [id, severity, system, detected_at, disposition]
+  HumanApproval:
+    properties: [id, actor, action, scope, timestamp, decision]
+
+link_types:
+  - [Agent, MEMBER_OF, Swarm]
+  - [Swarm, OPERATES_ON, AI_System]
+  - [AI_System, DEPENDS_ON, Model]
+  - [AI_System, USES, Dataset]
+  - [Production, IMPLEMENTED_IN, Repository]
+  - [Document, DESCRIBES, AI_System]
+  - [Policy, GOVERNS, AI_System]
+  - [Regulation, APPLIES_TO, AI_System]
+  - [Control, SATISFIES, Policy]
+  - [Evaluation, EVALUATES, AI_System]
+  - [Evidence, SUPPORTS, Evaluation]
+  - [HumanApproval, AUTHORIZES, Production]
+  - [Agency, PUBLISHES, Document]
+
+classification_levels:
+  - PUBLIC
+  - INTERNAL
+  - CONFIDENTIAL
+  - RESTRICTED
+  - CLASSIFIED_AUTHORIZED_ONLY
+
+classification_rule: >-
+  Never discover, retrieve, ingest, infer, solicit, or redistribute classified or
+  restricted material merely because it exists. CLASSIFIED_AUTHORIZED_ONLY objects
+  may be represented as metadata placeholders unless the runtime has explicit lawful
+  authorization and an approved data connector providing that material.
+
+compliance_engine:
+  model: jurisdiction_and_context_aware
+  rule_sources:
+    - official_regulator_publications
+    - enacted_law_and_regulation
+    - organizational_policy
+    - contractual_controls
+  stages:
+    - identify_jurisdictions
+    - determine_system_role_and_use_case
+    - map_applicable_obligations
+    - attach_controls
+    - collect_evidence
+    - evaluate
+    - human_review_when_required
+    - release_or_block
+    - continuously_monitor_changes
+  prohibit_claim: universal_compliance_without_verified_scope
+
+swarm_rule:
+  name: gptdougALLKINDSFOREVERRULE
+  parent_rule: ForeverRuleGPTDOUGLLMMAXMIMIXK
+  scaling: maximum_useful_parallelism_within_runtime_limits
+  roles:
+    - ontology_mapper
+    - repository_mapper
+    - documentation_agent
+    - compliance_mapper
+    - evaluator
+    - critic
+    - provenance_agent
+    - security_reviewer
+    - integration_agent
+  constraints:
+    - no_permission_bypass
+    - no_secret_exfiltration
+    - no_unreviewed_production_promotion
+    - no_fabricated_authority_or_compliance_status
+    - no_unauthorized_classified_material
+
+palantir_mapping:
+  implementation: adapter_contract
+  object_types: object_types
+  link_types: link_types
+  actions:
+    - propose_candidate
+    - record_evaluation
+    - attach_evidence
+    - request_human_approval
+    - promote_reviewed_release
+  note: >-
+    This repository defines the ontology contract. Deployment into a Palantir Foundry
+    ontology requires an authenticated Foundry/AIP integration and project-specific IDs.

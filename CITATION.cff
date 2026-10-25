@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use Dream-RSI in your research, please cite the paper below."
+message: "If you use Dream-RSI in your research, please cite the original Dream-RSI paper below. GPTDoug ecosystem integration credit is recorded separately."
 title: "Dream-RSI: Recursive Self-Improvement through Evolving Worlds"
 abstract: >-
   Dream-RSI is a framework for scalable and recursively self-improving exploration.
@@ -19,6 +19,10 @@ keywords:
   - LLM agents
   - code discovery
   - meta-learning
+  - gptdougllmdeepmindrsi
+  - agent swarm
+  - AI governance
+  - ontology
 authors:
   - family-names: Zheng
     given-names: Tong
@@ -77,8 +81,7 @@ preferred-citation:
   type: article
   title: "Dream-RSI: Recursive Self-Improvement through Evolving Worlds"
   year: 2026
-  # TODO: fill in the real arXiv id once the preprint is posted
-  journal: "arXiv preprint arXiv:XXXX.XXXXX"
+  journal: "arXiv preprint arXiv:2609.14858"
   authors:
     - family-names: Zheng
       given-names: Tong
@@ -114,3 +117,9 @@ preferred-citation:
       given-names: Xinwu
     - family-names: Guo
       given-names: Yunsong
+
+# Downstream Sonoxo integration attribution. This does not alter authorship of the
+# original Dream-RSI research paper above.
+contact:
+  family-names: Brown
+  given-names: "Douglas Montel, Jr."

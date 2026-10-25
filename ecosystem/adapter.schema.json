@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sonoxo.dev/schemas/gptdoug-adapter.json",
+  "title": "GPTDougEcosystemAdapter",
+  "type": "object",
+  "required": ["name", "repository", "capabilities", "read", "evaluate"],
+  "properties": {
+    "name": {"type": "string"},
+    "repository": {"type": "string", "pattern": "^[^/]+/[^/]+$"},
+    "capabilities": {"type": "array", "items": {"type": "string"}},
+    "read": {"type": "boolean", "const": true},
+    "propose": {"type": "boolean", "default": true},
+    "evaluate": {"type": "boolean", "const": true},
+    "write": {"type": "boolean", "default": false},
+    "production_write": {"type": "boolean", "const": false}
+  },
+  "additionalProperties": false
+}

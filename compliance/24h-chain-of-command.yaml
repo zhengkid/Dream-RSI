@@ -1,0 +1,82 @@
+version: 1
+name: SONOXO_24H_COMPLIANCE_CHAIN
+rule: gptdougALLKINDSFOREVERRULE
+objective: >-
+  Maintain a continuously reviewable compliance command structure for Sonoxo
+  across sanctions, export controls, government contracting, cybersecurity,
+  territorial/jurisdictional obligations, AI governance, and commercial space.
+
+principles:
+  - no_unverified_compliance_claims
+  - authoritative_sources_only_for_legal_status
+  - least_privilege
+  - human_approval_for_high_impact_decisions
+  - immutable_audit_trail
+  - jurisdiction_specific_controls
+  - sanctions_and_export_screening_before_external_transactions
+  - classified_or_cui_data_only_in_authorized_environments
+
+chain_of_command:
+  level_0:
+    role: automated_watchers
+    sla: continuous_to_24h
+    duties:
+      - monitor_authoritative_sources
+      - detect_changed_rules_or_lists
+      - record_hash_timestamp_source
+      - open_review_event
+  level_1:
+    role: compliance_swarm
+    sla: 4h
+    agents:
+      - sanctions_mapper
+      - export_control_mapper
+      - territory_mapper
+      - cyber_compliance_mapper
+      - government_contracting_mapper
+      - space_law_mapper
+      - evidence_agent
+      - critic
+    duties:
+      - classify_change
+      - map_affected_repositories_and_systems
+      - propose_controls
+      - assign_severity
+  level_2:
+    role: security_and_legal_review
+    sla: 12h
+    duties:
+      - validate_applicability
+      - determine_required_registration_license_or_contract_action
+      - approve_or_reject_control_changes
+  level_3:
+    role: executive_authority
+    sla: 24h
+    duties:
+      - approve_high_risk_business_actions
+      - suspend_affected_release_or_transaction
+      - authorize_external_counsel_or_regulator_contact
+
+severity:
+  critical:
+    examples: [sanctions_match, export_license_required, classified_data_exposure, prohibited_transaction]
+    action: block_and_escalate
+  high:
+    examples: [new_regulatory_obligation, government_contract_control_gap, launch_or_reentry_license_issue]
+    action: hold_release_and_review
+  medium:
+    examples: [policy_update, documentation_gap, filing_format_change]
+    action: remediate_within_review_cycle
+  low:
+    examples: [guidance_update, nonbinding_best_practice]
+    action: log_and_assess
+
+release_gates:
+  - sanctions_screen_complete
+  - export_classification_reviewed_when_applicable
+  - jurisdiction_identified
+  - data_classification_identified
+  - government_contract_requirements_mapped_when_applicable
+  - space_regulatory_path_mapped_when_applicable
+  - evidence_attached
+  - human_approval_for_high_or_critical

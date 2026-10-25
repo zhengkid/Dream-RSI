@@ -1,0 +1,67 @@
+version: 1
+name: SONOXO_GLOBAL_SPACE_FEDERATION
+status: internal_governance_model
+legal_effect: none
+purpose: >-
+  Provide an internal federation model that maps Sonoxo space activity to the
+  actual authorities and treaty frameworks that may govern launch, reentry,
+  satellite spectrum, registration, liability, export controls, sanctions,
+  remote sensing, and government contracting. This model does not claim to be
+  a government, treaty organization, licensing body, or international authority.
+
+federation_nodes:
+  us_launch_reentry:
+    authority: FAA_AST
+    governing_path: 14_CFR_Part_450_and_related_parts
+  international_space_law:
+    authority: UNOOSA_and_relevant_states
+    frameworks:
+      - Outer_Space_Treaty
+      - Rescue_Agreement
+      - Liability_Convention
+      - Registration_Convention
+      - Moon_Agreement_where_applicable
+  spectrum_and_orbital_filings:
+    authority: ITU_Radiocommunication_Bureau_and_national_administrations
+    framework: ITU_Radio_Regulations
+  us_export_controls:
+    authorities: [BIS, DDTC]
+    frameworks: [EAR, ITAR]
+  us_sanctions:
+    authority: OFAC
+  industrial_security:
+    authority: DCSA
+  national_territory_rules:
+    authority: relevant_national_and_subnational_authority
+
+mission_gate:
+  required_questions:
+    - what_entity_is_operating
+    - what_nationality_and_control_structure_applies
+    - where_is_operation_conducted
+    - what_payload_and_technology_are_involved
+    - what_frequency_and_orbit_are_used
+    - what_export_destinations_and_foreign_person_access_exist
+    - what_sanctions_screening_is_required
+    - what_launch_reentry_or_remote_sensing_license_is_required
+    - what_state_registration_or_treaty_reporting_is_required
+    - what_contract_or_classification_controls_apply
+  decisions:
+    pass: documented_no_blocking_obligation
+    conditional: license_registration_or_approval_required
+    hold: unresolved_high_risk_question
+    block: prohibited_transaction_or_operation
+
+territory_model:
+  levels: [country, customs_territory, state_or_province, local, airspace, maritime_zone, launch_site, orbital_slot_or_network]
+  rule: never_assume_one_country_rule_applies_globally
+
+agent_roles:
+  - treaty_mapper
+  - national_space_law_mapper
+  - spectrum_filing_mapper
+  - launch_reentry_mapper
+  - sanctions_mapper
+  - export_control_mapper
+  - mission_assurance_critic
+  - evidence_agent

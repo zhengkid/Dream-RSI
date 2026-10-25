@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "owner": "sonoxo",
+  "default_decision": "PASS",
+  "matched_decision": "REVIEW",
+  "hold_requires_transaction_context": true,
+  "block_requires_verified_prohibition": true,
+  "domains": {
+    "export_controls": {
+      "repo_patterns": ["space", "nasa", "fprime", "vicar", "gargoyle", "zyra", "xunia", "ghidra", "cyber", "pentest", "aip", "llm", "drone", "uap"],
+      "announcement_terms": ["export", "smuggl", "aerospace", "aviation", "electronics", "technology", "military", "dual-use", "ECRA", "AECA", "ITAR", "EAR"]
+    },
+    "sanctions": {
+      "repo_patterns": ["space", "zyra", "xunia", "commerce", "network", "api", "data", "cloud", "crypto", "xmr", "xrpl"],
+      "announcement_terms": ["sanction", "IEEPA", "blocked", "Russia", "Iran", "North Korea", "Syria", "Cuba", "designated", "evasion"]
+    },
+    "fara_foreign_influence": {
+      "repo_patterns": ["media", "network", "dao", "crm", "government", "policy", "gpt-doug", "xunia", "zyra"],
+      "announcement_terms": ["FARA", "foreign principal", "foreign agent", "political activities", "influence"]
+    },
+    "foreign_investment_cfius": {
+      "repo_patterns": ["aip", "ai", "llm", "data", "cyber", "space", "zyra", "xunia", "network", "cloud"],
+      "announcement_terms": ["CFIUS", "foreign investment", "acquisition", "investment", "Team Telecom", "covered transaction"]
+    },
+    "data_security": {
+      "repo_patterns": ["data", "health", "feelingcheck", "tracker", "network", "cloud", "ai", "llm", "zyra", "xunia", "crm"],
+      "announcement_terms": ["Data Security Program", "bulk sensitive", "government-related data", "genomic", "geolocation", "biometric", "health", "financial", "covered person", "country of concern"]
+    },
+    "national_security_cyber": {
+      "repo_patterns": ["cyber", "pentest", "ghidra", "security", "secure", "privacy", "network", "openclaw", "zyrahawk", "hounddog", "tracker"],
+      "announcement_terms": ["cyber", "malware", "intrusion", "botnet", "ransomware", "nation-state", "computer fraud", "CFAA"]
+    },
+    "classified_information": {
+      "repo_patterns": ["defense", "military", "mission-control", "gargoyle", "zyra", "xunia", "cyber"],
+      "announcement_terms": ["classified", "CIPA", "espionage", "sabotage", "atomic energy", "national defense information"]
+    }
+  }
+}

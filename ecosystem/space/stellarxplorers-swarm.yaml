@@ -1,0 +1,70 @@
+version: 1
+name: gptdoug-stellarxplorers-space-swarm
+rule: gptdougALLKINDSFOREVERRULE
+parent_rule: ForeverRuleGPTDOUGLLMMAXMIMIXK
+source:
+  name: StellarXplorers Training
+  url: https://www.stellarxplorers.org/training.html
+  use: public-educational-reference
+
+mission_domains:
+  - orbit_planning
+  - access_analysis
+  - satellite_design
+  - payload_trade_studies
+  - launch_vehicle_selection
+  - launch_window_analysis
+  - area_mapping
+  - engineering_calculations
+  - mission_scoring
+
+agents:
+  OrbitAgent:
+    responsibilities: [altitude, inclination, orbital_period, access_geometry]
+  AccessAgent:
+    responsibilities: [coverage, revisit, target_access, mission_windows]
+  SatelliteAgent:
+    responsibilities: [mass_budget, power_budget, subsystem_tradeoffs]
+  PayloadAgent:
+    responsibilities: [payload_mass, payload_power, mission_fit]
+  LaunchAgent:
+    responsibilities: [vehicle_fit, payload_margin, launch_constraints]
+  MappingAgent:
+    responsibilities: [area_of_interest, coverage_plan, geospatial_outputs]
+  CostAgent:
+    responsibilities: [budget_estimate, tradeoff_score]
+  MissionCritic:
+    responsibilities: [constraint_checks, score_review, failure_reasons]
+  EvolutionAgent:
+    responsibilities: [candidate_mutation, lineage, dream_rsi_replay]
+
+ontology_objects:
+  - SpaceMission
+  - OrbitCandidate
+  - SatelliteDesign
+  - Payload
+  - LaunchVehicle
+  - GroundTarget
+  - AccessWindow
+  - CoverageRegion
+  - MissionEvaluation
+  - MissionLineage
+
+pipeline:
+  - define_objective
+  - generate_orbit_candidates
+  - evaluate_access
+  - generate_satellite_candidates
+  - evaluate_mass_power_and_cost
+  - match_launch_vehicle
+  - evaluate_constraints
+  - score_candidates
+  - retain_diverse_winners
+  - record_lineage
+  - dream_rsi_replay
+  - evolve_next_generation
+
+promotion_gates:
+  require_constraint_pass: true
+  require_evaluator_score: true
+  require_human_review_for_real_world_operations: true

@@ -1,0 +1,111 @@
+{
+  "blocking_groups": [
+    "export_controls",
+    "sanctions"
+  ],
+  "checked_at": "2026-09-17T12:32:39.314972+00:00",
+  "decision": "HOLD",
+  "note": "Source availability is operational evidence, not a compliance verdict. 403/anti-bot responses are recorded as degraded access. The pipeline blocks only when every configured controlling source for a critical sanctions or export-control group is unavailable.",
+  "policy": "authoritative-source-availability-and-change-evidence-v2",
+  "results": {
+    "BIS_EAR": {
+      "critical_group": "export_controls",
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "ok": false,
+      "source": "https://www.bis.gov/regulations/ear",
+      "status": null
+    },
+    "CISA": {
+      "critical_group": null,
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "ok": false,
+      "source": "https://www.cisa.gov/news-events/cybersecurity-advisories",
+      "status": null
+    },
+    "DCSA_FOCI": {
+      "critical_group": null,
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "ok": false,
+      "source": "https://www.dcsa.mil/Industrial-Security/Entity-Vetting-Facility-Clearances-FOCI/",
+      "status": null
+    },
+    "DDTC_ITAR": {
+      "critical_group": "export_controls",
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "ok": false,
+      "source": "https://deccs.pmddtc.state.gov/deccs?id=ddtc_search&q=itar",
+      "status": null
+    },
+    "DOJ_NSD_DATA_SECURITY": {
+      "critical_group": null,
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "ok": false,
+      "source": "https://www.justice.gov/nsd/data-security",
+      "status": null
+    },
+    "DOJ_NSD_EXPORT": {
+      "critical_group": null,
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "ok": false,
+      "source": "https://www.justice.gov/nsd/export-control-and-sanctions",
+      "status": null
+    },
+    "DOJ_NSD_FARA": {
+      "critical_group": null,
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "ok": false,
+      "source": "https://www.justice.gov/nsd-fara",
+      "status": null
+    },
+    "FAA_SPACE": {
+      "critical_group": null,
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "ok": false,
+      "source": "https://www.faa.gov/space/licenses/licensing_process",
+      "status": null
+    },
+    "ITU_SPACE": {
+      "critical_group": null,
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "ok": false,
+      "source": "https://www.itu.int/ITU-R/go/space-e-submission/en",
+      "status": null
+    },
+    "NIST_CSF": {
+      "critical_group": null,
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "ok": false,
+      "source": "https://www.nist.gov/cyberframework",
+      "status": null
+    },
+    "OFAC": {
+      "critical_group": "sanctions",
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "ok": false,
+      "source": "https://ofac.treasury.gov/sanctions-programs-and-country-information",
+      "status": null
+    },
+    "UNOOSA_SPACE_LAW": {
+      "critical_group": null,
+      "error": "<urlopen error [Errno -5] No address associated with hostname>",
+      "ok": false,
+      "source": "https://www.unoosa.org/oosa/SpaceLaw/treaties.html",
+      "status": null
+    }
+  },
+  "status": "blocked",
+  "unavailable_sources": [
+    "BIS_EAR",
+    "CISA",
+    "DCSA_FOCI",
+    "DDTC_ITAR",
+    "DOJ_NSD_DATA_SECURITY",
+    "DOJ_NSD_EXPORT",
+    "DOJ_NSD_FARA",
+    "FAA_SPACE",
+    "ITU_SPACE",
+    "NIST_CSF",
+    "OFAC",
+    "UNOOSA_SPACE_LAW"
+  ]
+}

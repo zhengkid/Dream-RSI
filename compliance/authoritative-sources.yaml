@@ -1,0 +1,70 @@
+version: 1
+name: SONOXO_AUTHORITATIVE_COMPLIANCE_SOURCES
+sources:
+  sanctions:
+    - authority: US_Treasury_OFAC
+      url: https://ofac.treasury.gov/sanctions-programs-and-country-information
+      cadence: daily
+      controls: [sanctions_programs, SDN_and_non_SDN_screening, blocked_property_rules]
+  export_controls:
+    - authority: US_Commerce_BIS
+      url: https://www.bis.gov/regulations/ear
+      cadence: daily
+      controls: [EAR, CCL, country_chart, entity_restrictions, deemed_exports]
+    - authority: US_State_DDTC
+      url: https://deccs.pmddtc.state.gov/deccs?id=ddtc_search&q=itar
+      cadence: daily
+      controls: [ITAR, USML, registration, defense_services, brokering]
+    - authority: DOJ_NSD_CES
+      url: https://www.justice.gov/nsd/export-control-and-sanctions
+      cadence: daily
+      controls: [AECA_enforcement, ECRA_enforcement, IEEPA_enforcement, export_control_criminal_risk, sanctions_evasion_enforcement]
+  foreign_influence_and_national_security:
+    - authority: DOJ_NSD_FARA
+      url: https://www.justice.gov/nsd-fara
+      cadence: daily
+      controls: [FARA_registration, foreign_principal_relationships, political_activities_disclosure, foreign_agent_risk]
+    - authority: DOJ_NSD
+      url: https://www.justice.gov/nsd
+      social_reference: https://x.com/DOJNatSec
+      cadence: daily
+      controls: [counterintelligence, export_controls, sanctions, foreign_investment_review, national_security_cyber, counterterrorism, corporate_enforcement]
+    - authority: DOJ_CORPORATE_ENFORCEMENT_POLICY
+      url: https://www.justice.gov/opa/pr/reporting-voluntary-self-disclosures-violations-national-security-laws-under-department-wide
+      cadence: weekly
+      controls: [voluntary_self_disclosure, remediation, cooperation, national_security_law_violations]
+  industrial_security:
+    - authority: DCSA
+      url: https://www.dcsa.mil/Industrial-Security/Entity-Vetting-Facility-Clearances-FOCI/
+      cadence: daily
+      controls: [FOCI, facility_clearance, NISP]
+  commercial_space:
+    - authority: FAA_AST
+      url: https://www.faa.gov/space/licenses/licensing_process
+      cadence: daily
+      controls: [launch, reentry, site_operator, Part_450]
+    - authority: ITU_BR
+      url: https://www.itu.int/ITU-R/space/e-submission
+      cadence: daily
+      controls: [satellite_network_filings, radio_regulations, spectrum_coordination]
+    - authority: UNOOSA
+      url: https://www.unoosa.org/oosa/SpaceLaw/treaties.html
+      cadence: weekly
+      controls: [outer_space_treaty, rescue_agreement, liability_convention, registration_convention, moon_agreement]
+  cybersecurity_and_government:
+    - authority: NIST
+      url: https://www.nist.gov/cyberframework
+      cadence: weekly
+      controls: [CSF]
+    - authority: CISA
+      url: https://www.cisa.gov/
+      cadence: daily
+      controls: [cyber_directives, alerts, critical_infrastructure_guidance]
+
+policy:
+  legal_status_requires_authoritative_source: true
+  social_media_is_alerting_only_not_controlling_authority: true
+  secondary_sources_may_explain_but_not_override: true
+  cache_with_hash_and_timestamp: true
+  stale_source_threshold_hours: 24
+  fail_closed_for_sanctions_export_and_foreign_influence_checks: true
